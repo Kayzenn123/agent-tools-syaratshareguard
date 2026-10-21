@@ -1,0 +1,14 @@
+{
+	"pid": 1876,
+	"port": 4321,
+	"url": "http://127.0.0.1:4321",
+	"urls": {
+		"local": [
+			"http://127.0.0.1:4321/agent-tools-syaratshareguard"
+		],
+		"network": [],
+		"networkInterfaceNames": []
+	},
+	"background": false,
+	"startedAt": "2026-10-21T01:41:04.637Z"
+}

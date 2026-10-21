@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon/components';
+import Torn from './Torn.astro';
+---
+<section id="kamus" class="relative" style="background:var(--sg-surface)" aria-labelledby="kamus-h">
+  <Torn />
+  <div class="max-w-6xl mx-auto px-6 py-20" data-wipe>
+    <p class="sg-xs font-extrabold uppercase" style="letter-spacing:.14em;color:var(--aw-color-primary)">alat 01 · kamus</p>
+    <h2 id="kamus-h" class="sg-display mt-4" style="font-size:clamp(2.6rem,8vw,5.5rem)">kamus syarat.</h2>
+    <p class="sg-body mt-4 max-w-2xl">Lima belas istilah yang muncul di tiap pamflet lomba — artinya, jebakannya, dan cara amannya. Ketik buat cari, klik kartu buat baca.</p>
+    <div class="mt-8 max-w-xl">
+      <label class="sg-label" for="sg-kamus-cari">Cari istilah</label>
+      <div class="relative mt-2">
+        <input id="sg-kamus-cari" class="sg-input pr-12" type="search" placeholder="misal: twibbon, tag, screenshot…" autocomplete="off" />
+        <Icon name="ceklis" class="w-6 h-6 absolute right-3 top-1/2 -translate-y-1/2 opacity-40" />
+      </div>
+      <p id="sg-kamus-count" class="sg-xs mt-2 opacity-70" role="status"></p>
+    </div>
+    <div id="sg-kamus-grid" class="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3"></div>
+  </div>
+  <Torn flip={true} />
+</section>

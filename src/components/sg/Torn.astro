@@ -1,0 +1,8 @@
+---
+// Divider tepi sobek kertas (custom SVG, teknik visual orisinal).
+interface Props { flip?: boolean }
+const { flip = false } = Astro.props;
+---
+<svg class="sg-torn" viewBox="0 0 1200 26" preserveAspectRatio="none" aria-hidden="true" style={flip ? 'transform:scaleY(-1)' : ''}>
+  <path fill="currentColor" d="M0,0 H1200 V14 L1160,18 L1120,10 L1080,20 L1040,12 L1000,22 L960,11 L920,19 L880,9 L840,21 L800,12 L760,18 L720,8 L680,20 L640,11 L600,22 L560,10 L520,19 L480,9 L440,21 L400,12 L360,18 L320,8 L280,20 L240,11 L200,22 L160,10 L120,19 L80,9 L40,18 Z" />
+</svg>

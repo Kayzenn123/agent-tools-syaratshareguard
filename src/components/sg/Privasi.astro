@@ -1,0 +1,29 @@
+---
+import { Icon } from 'astro-icon/components';
+---
+<section id="privasi" class="relative" style="background:var(--aw-color-bg-page)" aria-labelledby="privasi-h">
+  <div class="max-w-6xl mx-auto px-6 py-20" data-wipe>
+    <p class="sg-xs font-extrabold uppercase" style="letter-spacing:.14em;color:var(--aw-color-primary)">alat 04 · pengingat</p>
+    <h2 id="privasi-h" class="sg-display mt-4" style="font-size:clamp(2.6rem,8vw,5.5rem)">8 aturan privasi.</h2>
+    <p class="sg-body mt-4 max-w-2xl">Syarat boleh dipenuhi, tapi datamu jangan ikut difotokopi. Centang yang sudah kamu jaga — Mas Penjaga mengawasi.</p>
+
+    <div class="mt-10 grid gap-8 lg:grid-cols-3">
+      <div class="lg:col-span-2">
+        <ul id="sg-privasi-list" class="space-y-3"></ul>
+      </div>
+      <div>
+        <div class="sg-card p-6 lg:sticky lg:top-24">
+          <div class="flex items-center gap-3">
+            <Icon name="perisai" class="w-8 h-8" />
+            <p class="sg-label">Skor penjagaan</p>
+          </div>
+          <div class="sg-progress mt-4" role="progressbar" aria-label="Aturan privasi yang dijaga">
+            <div id="sg-privasi-bar" style="width:0%"></div>
+          </div>
+          <p id="sg-privasi-label" class="sg-body font-bold mt-3" role="status"></p>
+          <p class="sg-xs mt-3 opacity-70">Centang tersimpan otomatis di browser ini.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

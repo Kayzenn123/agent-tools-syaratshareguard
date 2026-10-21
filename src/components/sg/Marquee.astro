@@ -1,0 +1,23 @@
+---
+import { Icon } from 'astro-icon/components';
+interface Props { items: string[]; reverse?: boolean; dark?: boolean; label: string }
+const { items, reverse = false, dark = false, label } = Astro.props;
+const row = [...items, ...items, ...items];
+---
+<div
+  class="sg-marquee sg-xs font-extrabold uppercase"
+  role="marquee"
+  aria-label={label}
+  style={`background:${dark ? 'var(--sg-ink)' : 'var(--aw-color-primary)'};color:${dark ? 'var(--aw-color-bg-page)' : '#fff'};letter-spacing:.12em;padding:.55rem 0;border-top:2px solid var(--sg-ink);border-bottom:2px solid var(--sg-ink);`}
+>
+  <div class={`sg-marquee-track ${reverse ? 'rev' : ''}`} aria-hidden="true">
+    {[0, 1].map(() => (
+      <span class="inline-flex items-center">
+        {row.map((t) => (
+          <span class="inline-flex items-center"><span class="px-6">{t}</span><Icon name="stamp-sah" class="w-4 h-4" /></span>
+        ))}
+      </span>
+    ))}
+  </div>
+  <span class="sr-only">{items.join(', ')}</span>
+</div>

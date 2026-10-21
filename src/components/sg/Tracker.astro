@@ -1,0 +1,63 @@
+---
+import { Icon } from 'astro-icon/components';
+import Seal from './Seal.astro';
+---
+<section id="tracker" class="relative" style="background:var(--aw-color-bg-page)" aria-labelledby="tracker-h">
+  <div class="max-w-6xl mx-auto px-6 py-20" data-wipe>
+    <p class="sg-xs font-extrabold uppercase" style="letter-spacing:.14em;color:var(--aw-color-primary)">alat 02 · tracker</p>
+    <h2 id="tracker-h" class="sg-display mt-4" style="font-size:clamp(2.6rem,8vw,5.5rem)">tracker share.</h2>
+    <p class="sg-body mt-4 max-w-2xl">Catat tiap grup yang sudah dikirimi pamflet. Centang kalau screenshot buktinya sudah ditempel. Data tersimpan di browser-mu sendiri — bukan di server siapa pun.</p>
+
+    <form id="sg-tracker-form" class="mt-10 grid gap-8 lg:grid-cols-5">
+      <div class="lg:col-span-2 space-y-5">
+        <div>
+          <label class="sg-label" for="sg-lomba">Nama lomba</label>
+          <input id="sg-lomba" class="sg-input mt-2" type="text" placeholder="misal: Lomba Poster ARTVORIA" maxlength="120" autocomplete="off" />
+          <p id="sg-err-lomba" class="sg-xs mt-2 font-bold" style="color:var(--aw-color-primary)" role="alert"></p>
+        </div>
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label class="sg-label" for="sg-target">Target grup</label>
+            <input id="sg-target" class="sg-input mt-2" type="number" min="1" max="50" value="3" inputmode="numeric" />
+          </div>
+          <div>
+            <label class="sg-label" for="sg-deadline">Deadline</label>
+            <input id="sg-deadline" class="sg-input mt-2" type="date" />
+          </div>
+        </div>
+        <p id="sg-countdown" class="sg-body font-bold" role="status"></p>
+        <div class="flex flex-wrap gap-3">
+          <button type="button" id="sg-export" class="sg-btn stamp"><Icon name="unduh" class="w-5 h-5" /> Unduh bukti</button>
+          <button type="button" id="sg-reset" class="sg-btn ghost">Kosongkan</button>
+        </div>
+        <p class="sg-xs opacity-70">Bagikan progresmu: salin URL halaman ini — nama lomba, target, dan deadline ikut terbawa lewat link.</p>
+      </div>
+
+      <div class="lg:col-span-3">
+        <div class="sg-card p-6">
+          <div class="flex items-end justify-between gap-4 flex-wrap">
+            <div>
+              <p class="sg-label">Progres kiriman</p>
+              <p class="sg-display mt-1" style="font-size:3.4rem"><span id="sg-count-num">0</span><span class="opacity-40"> grup</span></p>
+            </div>
+            <span id="sg-lunas" class="sg-stamp" style="font-size:var(--fs-md);display:none">lunas</span>
+            <div class="hidden md:block"><Seal size={86} text="BUKTI LENGKAP • JANGAN SPAM • " /></div>
+          </div>
+          <div class="sg-progress mt-4" role="progressbar" aria-label="Progres grup terkirim" aria-valuemin="0" aria-valuemax="100">
+            <div id="sg-progress-bar" style="width:0%"></div>
+          </div>
+          <p id="sg-progress-label" class="sg-xs mt-2 font-bold">0 dari 3 grup — 0%</p>
+
+          <div class="mt-6">
+            <label class="sg-label" for="sg-grup-nama">Tambah grup yang sudah dikirimi</label>
+            <div class="flex gap-3 mt-2">
+              <input id="sg-grup-nama" class="sg-input" type="text" placeholder="misal: Grup Angkatan 2024" maxlength="80" autocomplete="off" />
+              <button type="button" id="sg-grup-tambah" class="sg-btn flex-none">Tambah</button>
+            </div>
+          </div>
+          <ul id="sg-grup-list" class="mt-5 space-y-3"></ul>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

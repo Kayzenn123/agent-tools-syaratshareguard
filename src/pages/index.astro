@@ -1,0 +1,104 @@
+---
+import PageLayout from '~/layouts/PageLayout.astro';
+import Header from '~/components/widgets/Header.astro';
+import { headerData } from '~/navigation';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, I18N } from 'astrowind:config';
+import favIconSvg from '~/assets/favicons/favicon.svg';
+
+import SplitHero from '~/components/sg/SplitHero.astro';
+import Gate from '~/components/sg/Gate.astro';
+import Marquee from '~/components/sg/Marquee.astro';
+import Kamus from '~/components/sg/Kamus.astro';
+import Tracker from '~/components/sg/Tracker.astro';
+import Pesan from '~/components/sg/Pesan.astro';
+import Privasi from '~/components/sg/Privasi.astro';
+import Kenapa from '~/components/sg/Kenapa.astro';
+
+import { MARQUEE_A, MARQUEE_B } from '~/data/syarat';
+import '~/assets/styles/sg.css';
+
+const metadata = {
+  title: 'SyaratShareGuard — Tracker Syarat Share Lomba, Tanpa Jadi Tukang Spam',
+  description:
+    'Kamus istilah syarat lomba, tracker bukti share ke grup WA, generator pesan anti-spam, dan 8 aturan privasi. Semua jalan di browser.',
+  ignoreTitleTemplate: true,
+};
+
+const organizationId = `${SITE?.site}/#organization`;
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': organizationId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: SITE?.name,
+    url: SITE?.site,
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Web',
+    offers: { '@type': 'Offer', price: '0', priceCurrency: 'IDR' },
+    inLanguage: I18N?.language,
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    '@id': organizationId,
+    name: SITE?.name,
+    url: SITE?.site,
+    logo: new URL(favIconSvg.src, SITE?.site).toString(),
+  },
+];
+---
+
+<PageLayout metadata={metadata}>
+  <span slot="announcement" aria-hidden="true" />
+  <Header slot="header" {...headerData} isSticky showToggleTheme />
+  <StructuredData slot="head" schema={structuredData} />
+
+  <a href="#kamus" class="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:p-3 focus:font-bold focus:min-h-[44px] focus:inline-flex focus:items-center" style="background:var(--aw-color-primary);color:#fff">
+    Lompat ke alat
+  </a>
+
+  <div class="sg-grain" aria-hidden="true"></div>
+
+  <main id="sg-main">
+    <SplitHero />
+    <Marquee items={MARQUEE_A} label="Peringatan anti-spam berjalan" />
+    <Gate />
+    <Marquee items={MARQUEE_B} reverse={true} dark={true} label="Istilah syarat berjalan" />
+    <Kamus />
+    <Tracker />
+    <Pesan />
+    <Privasi />
+    <Kenapa />
+  </main>
+
+  <button
+    type="button" id="sg-motion-toggle" aria-pressed="true"
+    class="sg-xs font-extrabold uppercase fixed bottom-5 right-5 z-[110]"
+    style="background:var(--sg-ink);color:var(--aw-color-bg-page);border:2px solid var(--sg-ink);border-radius:2px;padding:.6rem .9rem;letter-spacing:.08em;box-shadow:3px 3px 0 var(--aw-color-primary);min-height:44px"
+  >
+    Gerak: nyala
+  </button>
+
+  <script>
+    import { initApp } from '~/assets/scripts/sg-app';
+    import { initMotion } from '~/assets/scripts/sg-motion';
+    initApp();
+    // Motion berat hanya di desktop, dinamis, dan bisa dimatikan.
+    if (window.matchMedia('(min-width: 1024px)').matches) {
+      if ('requestIdleCallback' in window) {
+        (window as unknown as { requestIdleCallback: (cb: () => void) => void }).requestIdleCallback(() => initMotion());
+      } else {
+        window.setTimeout(() => initMotion(), 1200);
+      }
+    }
+  </script>
+</PageLayout>

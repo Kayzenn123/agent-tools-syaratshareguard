@@ -1,0 +1,9 @@
+---
+import { SITE } from 'astrowind:config';
+import { Icon } from 'astro-icon/components';
+---
+
+<span class="self-center ml-2 rtl:ml-0 rtl:mr-2 whitespace-nowrap inline-flex items-center gap-2">
+  <Icon name="stamp-sah" class="w-7 h-7" style="color:var(--aw-color-primary)" />
+  <span class="sg-stampfont sg-logo-name" style="letter-spacing:.04em">{SITE?.name}</span>
+</span>

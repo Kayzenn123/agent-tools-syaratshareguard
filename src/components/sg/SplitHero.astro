@@ -1,0 +1,54 @@
+---
+import { Icon } from 'astro-icon/components';
+import Seal from './Seal.astro';
+---
+<section class="sg-split" id="sg-split" style="min-height:92svh" aria-label="Dua dunia: syarat dan privasi">
+  <!-- DUNIA PANITIA (kiri, dasar) -->
+  <div class="absolute inset-0" style="background:var(--aw-color-bg-page)">
+    <div class="sg-side-a h-full px-5 md:px-10 py-24">
+      <p class="sg-xs font-extrabold uppercase" style="letter-spacing:.14em;color:var(--aw-color-primary)">Dunia panitia</p>
+      <h2 class="sg-display mt-4" style="font-size:clamp(2rem,7vw,4.5rem)">penuhi syaratnya.</h2>
+      <ul class="sg-body mt-8 space-y-3">
+        <li class="flex gap-3 items-start"><Icon name="ceklis" class="w-6 h-6 flex-none mt-1" /><span>Share pamflet ke <strong>3 grup</strong> — bukan grup keluarga.</span></li>
+        <li class="flex gap-3 items-start"><Icon name="ceklis" class="w-6 h-6 flex-none mt-1" /><span>Screenshot tiap kiriman — nama grup harus kelihatan.</span></li>
+        <li class="flex gap-3 items-start"><Icon name="ceklis" class="w-6 h-6 flex-none mt-1" /><span>Kirim bukti ke CP sebelum deadline, jam kerja.</span></li>
+      </ul>
+      <div class="mt-8"><span class="sg-stamp" style="font-size:var(--fs-md)">wajib</span></div>
+      <a href="#tracker" class="sg-btn mt-10 w-fit">Buka tracker <Icon name="unduh" class="w-5 h-5 rotate-[-90deg]" /></a>
+    </div>
+  </div>
+
+  <!-- DUNIA KAMU (kanan, di-clip) -->
+  <div class="world-b" id="sg-world-b">
+    <div class="world-b-inner" id="sg-world-b-inner" style="background:var(--sg-ink);color:var(--aw-color-bg-page)">
+      <div class="sg-side-b h-full px-5 md:px-10 py-24 text-right">
+        <p class="sg-xs font-extrabold uppercase" style="letter-spacing:.14em;color:var(--aw-color-accent)">Dunia kamu</p>
+        <h2 class="sg-display mt-4" style="font-size:clamp(2rem,7vw,4.5rem)">jaga privasimu.</h2>
+        <ul class="sg-body mt-8 space-y-3">
+          <li class="flex gap-3 items-start flex-row-reverse"><Icon name="mata-tutup" class="w-6 h-6 flex-none mt-1" /><span>Sensor nomor HP &amp; NIK sebelum screenshot disebar.</span></li>
+          <li class="flex gap-3 items-start flex-row-reverse"><Icon name="perisai" class="w-6 h-6 flex-none mt-1" /><span>Minta izin admin grup dulu. Satu grup, satu kiriman.</span></li>
+          <li class="flex gap-3 items-start flex-row-reverse"><Icon name="gembok" class="w-6 h-6 flex-none mt-1" /><span>Jangan kirim link pendaftaran dari sumber tak resmi.</span></li>
+        </ul>
+        <div class="mt-8"><span class="sg-stamp tilt-r" style="font-size:var(--fs-md);color:var(--aw-color-accent);border-color:var(--aw-color-accent)">jangan sentuh</span></div>
+        <a href="#privasi" class="sg-btn ghost mt-10 w-fit" style="color:var(--aw-color-bg-page);border-color:var(--aw-color-bg-page)">Cek 8 aturan <Icon name="unduh" class="w-5 h-5 rotate-[-90deg]" /></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Pembatas geser -->
+  <div
+    class="sg-divider" id="sg-divider" role="slider" tabindex="0"
+    aria-label="Geser pembatas dua dunia" aria-valuemin="8" aria-valuemax="92" aria-valuenow="50"
+  >
+    <span class="sg-divider-handle"><Icon name="geser" class="w-6 h-6" /></span>
+  </div>
+
+  <!-- Judul raksasa + seal -->
+  <div class="absolute inset-x-0 top-16 md:top-20 text-center pointer-events-none z-[4] px-2">
+    <h1 class="sg-display" style="font-size:clamp(2.4rem,9vw,6.5rem);text-shadow:3px 3px 0 var(--aw-color-bg-page)">syarat·share·aman</h1>
+  </div>
+  <div class="absolute top-1/2 right-6 md:right-12 z-[4] pointer-events-none hidden md:block" style="transform:translateY(-50%)"><Seal size={110} /></div>
+  <p class="absolute bottom-6 left-1/2 -translate-x-1/2 z-[4]">
+    <span class="sg-xs font-bold uppercase whitespace-nowrap" style="letter-spacing:.12em;background:var(--aw-color-bg-page);border:2px solid var(--sg-ink);border-radius:999px;padding:.45rem .9rem">← geser pembatasnya →</span>
+  </p>
+</section>

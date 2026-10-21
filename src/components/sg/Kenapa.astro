@@ -1,0 +1,13 @@
+---
+import Torn from './Torn.astro';
+---
+<section id="kenapa" class="relative" style="background:var(--sg-surface)" aria-labelledby="kenapa-h">
+  <Torn />
+  <div class="max-w-4xl mx-auto px-6 py-20 text-center" data-wipe>
+    <span class="sg-stamp" style="font-size:var(--fs-md)">kata mas penjaga</span>
+    <h2 id="kenapa-h" class="sg-display mt-8" style="font-size:clamp(2.2rem,7vw,4.6rem)">syarat lomba itu bukan hukuman.</h2>
+    <p class="sg-body mt-6 text-left md:text-center max-w-2xl mx-auto">Panitia butuh bukti kamu serius. Kamu butuh privasimu tetap utuh. Dua-duanya bisa dipenuhi — asal caranya benar: izin dulu, kirim sekali, simpan buktinya, jangan ganggu orang. Tool ini dibuat biar kamu tidak dicap tukang spam cuma karena ikut lomba.</p>
+    <p class="sg-xs mt-8 opacity-70">Easter egg: tekan tombol <kbd class="sg-xs font-bold border px-1" style="border-color:var(--sg-ink)">S</kbd> di keyboard — ada stempel jatuh.</p>
+  </div>
+  <Torn flip={true} />
+</section>

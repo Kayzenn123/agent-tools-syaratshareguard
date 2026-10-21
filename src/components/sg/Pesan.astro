@@ -1,0 +1,43 @@
+---
+import { Icon } from 'astro-icon/components';
+import Torn from './Torn.astro';
+---
+<section id="pesan" class="relative" style="background:var(--sg-ink);color:var(--aw-color-bg-page)" aria-labelledby="pesan-h">
+  <Torn />
+  <div class="max-w-6xl mx-auto px-6 py-20" data-wipe>
+    <p class="sg-xs font-extrabold uppercase" style="letter-spacing:.14em;color:var(--aw-color-accent)">alat 03 · generator</p>
+    <h2 id="pesan-h" class="sg-display mt-4" style="font-size:clamp(2.6rem,8vw,5.5rem)">pesan anti-spam.</h2>
+    <p class="sg-body mt-4 max-w-2xl opacity-90">Tiga gaya pesan yang sopan dan tidak terlihat seperti spam. Isi datanya, pilih gaya, salin, tempel. Selesai.</p>
+
+    <div id="sg-pesan" class="mt-10 grid gap-8 lg:grid-cols-2">
+      <div class="space-y-5">
+        <div role="group" aria-label="Pilih gaya pesan" class="flex flex-wrap gap-3">
+          <button type="button" data-gaya="santai" aria-pressed="true" class="sg-btn stamp">Santai</button>
+          <button type="button" data-gaya="sopan" aria-pressed="false" class="sg-btn ghost" style="color:var(--aw-color-bg-page);border-color:var(--aw-color-bg-page)">Sopan</button>
+          <button type="button" data-gaya="caption" aria-pressed="false" class="sg-btn ghost" style="color:var(--aw-color-bg-page);border-color:var(--aw-color-bg-page)">Caption IG</button>
+        </div>
+        <div>
+          <label class="sg-label" for="sg-pesan-nama" style="color:var(--aw-color-bg-page)">Namamu</label>
+          <input id="sg-pesan-nama" class="sg-input mt-2" type="text" placeholder="misal: Kay" maxlength="60" autocomplete="name" />
+        </div>
+        <div>
+          <label class="sg-label" for="sg-pesan-lomba" style="color:var(--aw-color-bg-page)">Nama lomba</label>
+          <input id="sg-pesan-lomba" class="sg-input mt-2" type="text" placeholder="misal: Lomba Poster ARTVORIA" maxlength="120" autocomplete="off" />
+        </div>
+        <div>
+          <label class="sg-label" for="sg-pesan-link" style="color:var(--aw-color-bg-page)">Link info lomba</label>
+          <input id="sg-pesan-link" class="sg-input mt-2" type="url" placeholder="https://…" maxlength="300" inputmode="url" autocomplete="off" />
+        </div>
+      </div>
+      <div>
+        <label class="sg-label" for="sg-pesan-out" style="color:var(--aw-color-bg-page)">Hasil — tinggal salin</label>
+        <textarea id="sg-pesan-out" class="sg-textarea mt-2" rows="9" readonly aria-live="polite"></textarea>
+        <div class="flex items-center justify-between mt-3 flex-wrap gap-3">
+          <p id="sg-pesan-count" class="sg-xs opacity-70">0 karakter</p>
+          <button type="button" id="sg-pesan-salin" class="sg-btn stamp"><Icon name="salin" class="w-5 h-5" /> Salin pesan</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Torn flip={true} />
+</section>

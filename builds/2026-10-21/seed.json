@@ -1,0 +1,38 @@
+{
+  "seed": "2026-10-21",
+  "totalFontsInPool": 1958,
+  "domain": "kamus bahasa daerah",
+  "layout": "split screen dua dunia",
+  "reference": "zine fotokopi",
+  "constraint": "hanya 3 ukuran font",
+  "motion": {
+    "camera": "zoom-through teks jadi pintu",
+    "marquee": "2 band arah berlawanan + skew velocity",
+    "text": "teks di path melengkung",
+    "input": "tilt 3D pointer/gyro",
+    "reveal": "curtain wipe antar section"
+  },
+  "icons": {
+    "style": "solid blocky",
+    "source": "custom hand-built SVG"
+  },
+  "fonts": {
+    "display": "Macondo Swash Caps",
+    "body": "SUSE",
+    "accent": "Diplomata"
+  },
+  "palette": {
+    "mode": "light",
+    "harmony": "triadic",
+    "baseHue": 224,
+    "bg": "oklch(0.96 0.042 224)",
+    "surface": "oklch(0.90 0.040 224)",
+    "text": "oklch(0.20 0.040 224)",
+    "muted": "oklch(0.45 0.030 224)",
+    "accent": "oklch(0.72 0.169 344)",
+    "accent2": "oklch(0.75 0.230 104)",
+    "pop": "oklch(0.85 0.212 36)",
+    "note": "Draf. Wajib cek kontras AA dan rapikan lightness/chroma."
+  },
+  "buildDate": "2026-10-21"
+}
